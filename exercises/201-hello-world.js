@@ -13,8 +13,9 @@ hello('ulysses')
 // Otherwise it behaves the same as the "hello" function.
 
 function helloDefault (name){
-    if (name === ""){
+    if (typeof name !== 'string'  || name === '') {
         return 'Hello, world!'
     }
     return 'Hello, ' + name + '!'
 }
+
