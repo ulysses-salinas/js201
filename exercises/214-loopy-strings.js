@@ -59,7 +59,19 @@ function nicer (str){
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
 
 
-
+function capitalizeAll (str){
+    let splat = str.split(' ');
+    let str2 = '';
+    for (let i = 0; i < splat.length; i++){
+      if (splat[i].length > 0 ){
+    
+    str2 = str2 + splat[i].split('')[0].toUpperCase() + splat[i].split('').slice(1).join('') + ' ' ;
+    
+    }
+    
+    }
+    return str2.trim()
+    }
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "split" that does the same thing as String.split
 // It should take two inputs: (1) a string and (2) a delimiter string
