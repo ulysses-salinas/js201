@@ -9,6 +9,11 @@
 // reverse("skoob") --> "books"
 
 
+function reverse (str){
+    return str.split('').reverse().join('');
+  }
+  
+  reverse('skoob')
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "findLongestWord" that takes a string of words and returns
@@ -18,8 +23,16 @@
 // Example:
 // findLongestWord('a book full of dogs') --> 'book'
 
-
-
+function findLongestWord (str){
+    let splitWord = str.split(' ');
+    let long = splitWord[0];
+      for (i = 0; i < splitWord.length; i++){
+          if (splitWord[i].length > long.length){
+              long = splitWord[i];
+            }
+          }
+      return long
+    }
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "nicer"
 // It should clean up the language in its input sentence.
@@ -29,7 +42,12 @@
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
 
+function nicer (str){
 
+    let clean = str.replace(/ darn| heck| dang| crappy/gi,'');
+    return clean
+    }
+   
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "capitalizeAll"
