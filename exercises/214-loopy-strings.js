@@ -82,3 +82,32 @@ function capitalizeAll (str){
 // split('a-b-c', '-') --> ['a', 'b', 'c']
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
+
+function split (str, delimiter){
+    
+    let myArr = [''];
+    let indexArr = 0
+    let str2 = ''
+    for (let i = 0; i < str.length; i++){
+      if (str.charAt(i) === delimiter.charAt(0)) {
+          if(str2 === ''){
+          } else {
+            myArr[indexArr] = str2;
+            str2 = '';
+            indexArr++;
+          }
+      } else {
+        str2 = str2 + str.charAt(i);
+      }
+    }
+    myArr[indexArr] = str2
+
+    return myArr
+    
+    }
+
+
+
+
+
+
