@@ -8,12 +8,11 @@
 // Example:
 // reverse("skoob") --> "books"
 
+function reverse(str) {
+  return str.split("").reverse().join("");
+}
 
-function reverse (str){
-    return str.split('').reverse().join('');
-  }
-  
-  reverse('skoob')
+reverse("skoob");
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "findLongestWord" that takes a string of words and returns
@@ -23,16 +22,16 @@ function reverse (str){
 // Example:
 // findLongestWord('a book full of dogs') --> 'book'
 
-function findLongestWord (str){
-    let splitWord = str.split(' ');
-    let long = splitWord[0];
-      for (i = 0; i < splitWord.length; i++){
-          if (splitWord[i].length > long.length){
-              long = splitWord[i];
-            }
-          }
-      return long
+function findLongestWord(str) {
+  let splitWord = str.split(" ");
+  let long = splitWord[0];
+  for (i = 0; i < splitWord.length; i++) {
+    if (splitWord[i].length > long.length) {
+      long = splitWord[i];
     }
+  }
+  return long;
+}
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "nicer"
 // It should clean up the language in its input sentence.
@@ -42,12 +41,10 @@ function findLongestWord (str){
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
 
-function nicer (str){
-
-    let clean = str.replace(/ darn| heck| dang| crappy/gi,'');
-    return clean
-    }
-   
+function nicer(str) {
+  let clean = str.replace(/ darn| heck| dang| crappy/gi, "");
+  return clean;
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "capitalizeAll"
@@ -58,20 +55,20 @@ function nicer (str){
 // capitalizeAll('hello world') --> 'Hello World'
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
 
-
-function capitalizeAll (str){
-    let splat = str.split(' ');
-    let str2 = '';
-    for (let i = 0; i < splat.length; i++){
-      if (splat[i].length > 0 ){
-    
-    str2 = str2 + splat[i].split('')[0].toUpperCase() + splat[i].split('').slice(1).join('') + ' ' ;
-    
+function capitalizeAll(str) {
+  let splat = str.split(" ");
+  let str2 = "";
+  for (let i = 0; i < splat.length; i++) {
+    if (splat[i].length > 0) {
+      str2 =
+        str2 +
+        splat[i].split("")[0].toUpperCase() +
+        splat[i].split("").slice(1).join("") +
+        " ";
     }
-    
-    }
-    return str2.trim()
-    }
+  }
+  return str2.trim();
+}
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "split" that does the same thing as String.split
 // It should take two inputs: (1) a string and (2) a delimiter string
@@ -83,31 +80,29 @@ function capitalizeAll (str){
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
 
-function split (str, delimiter){
-    
-    let myArr = [''];
-    let indexArr = 0
-    let str2 = ''
-    for (let i = 0; i < str.length; i++){
-      if (str.charAt(i) === delimiter.charAt(0)) {
-          if(str2 === ''){
-          } else {
-            myArr[indexArr] = str2;
-            str2 = '';
-            indexArr++;
-          }
-      } else {
-        str2 = str2 + str.charAt(i);
+function split(string, delimiter) {
+  let words = [""];
+  let word = 0;
+  let newWord = "";
+  let matched = false;
+  for (let i = 0; i < string.length; i++) {
+    for (let j = 0; j < delimiter.length; j++) {
+      if (string.charAt(i) === delimiter.charAt(j)) {
+        matched = true;
       }
     }
-    myArr[indexArr] = str2
-
-    return myArr
-    
+    if (matched === true) {
+      if (newWord === "") {
+        matched = false;
+      } else {
+        words[word] = newWord;
+        newWord = "";
+        word++;
+      }
+    } else {
+      newWord = newWord + string.charAt(i);
     }
-
-
-
-
-
-
+    words[word] = newWord;
+  }
+  return words;
+}
