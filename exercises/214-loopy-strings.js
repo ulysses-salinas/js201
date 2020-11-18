@@ -80,10 +80,10 @@ function capitalizeAll(str) {
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
 
-function split(string, delimiter) {
-  let words = [""];
-  let word = 0;
-  let newWord = "";
+function split (string, delimiter) {
+  let strings = [""];
+  let stringIndex = 0;
+  let stringBuild = "";
   let matched = false;
   for (let i = 0; i < string.length; i++) {
     for (let j = 0; j < delimiter.length; j++) {
@@ -92,17 +92,17 @@ function split(string, delimiter) {
       }
     }
     if (matched === true) {
-      if (newWord === "") {
+      if (stringBuild === "") {
         matched = false;
       } else {
-        words[word] = newWord;
-        newWord = "";
-        word++;
+        strings[stringIndex] = stringBuild;
+        stringBuild = "";
+        stringIndex++;
       }
     } else {
-      newWord = newWord + string.charAt(i);
+      stringBuild = stringBuild + string.charAt(i);
     }
-    words[word] = newWord;
+    strings[stringIndex] = stringBuild;
   }
-  return words;
+  return strings;
 }
